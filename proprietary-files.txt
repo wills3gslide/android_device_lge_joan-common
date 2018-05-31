@@ -1016,7 +1016,7 @@ vendor/lib/hw/android.hardware.vibrator@1.0-impl.lge.so
 vendor/lib64/hw/android.hardware.vibrator@1.0-impl.lge.so
 lib/libpparam.so:vendor/lib/libpparam.so
 lib64/libpparam.so:vendor/lib64/libpparam.so
-bin/immvibed:vendor/bin/immvibed|c4227020fb802292841856f6a55c9b863b8a1c60
+bin/immvibed:vendor/bin/immvibed|814f817f8312e9d2bd1b014dd607a465dc690dae
 lib/libImmVibeJ.so:vendor/lib/libImmVibeJ.so
 lib64/libImmVibeJ.so:vendor/lib64/libImmVibeJ.so
 lib/libimmvibeandroidmanager.so:vendor/lib/libimmvibeandroidmanager.so
