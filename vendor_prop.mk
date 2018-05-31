@@ -76,7 +76,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qcom.hdr.config=/system/vendor/etc/hdr_tm_config.xml
+    ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
+
+# Manufacturer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.mypduct.manufacturer=LGE
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -105,7 +109,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
     persist.rmnet.data.enable=true \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=10 \
     ro.use_data_netmgrd=true \
