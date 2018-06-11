@@ -102,6 +102,8 @@ USE_CAMERA_STUB := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BOARD_NO_CHARGER_LED := true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
