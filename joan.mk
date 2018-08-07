@@ -27,6 +27,27 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
 # Properties
 -include $(COMMON_PATH)/vendor_prop.mk
 
+SRC_MEDIA_HAL_DIR := hardware/qcom/media/msm8998
+SRC_DISPLAY_HAL_DIR := hardware/qcom/display/msm8998
+SRC_CAMERA_HAL_DIR := hardware/qcom/camera/msm8998
+
+# Get kernel-headers
+$(call inherit-product, hardware/qcom/msm8998/msm8998.mk)
+
+$(call inherit-product, device/lge/joan-common/utils.mk)
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+    LOCAL_KERNEL := $(COMMON_PATH)/prebuilt/Image.lz4-dtb
+else
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel 
+
+MSM_VIDC_TARGET_LIST := msm8998 # Get the color format from kernel headers
+MASTER_SIDE_CP_TARGET_LIST := msm8998 # ION specific settings
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
@@ -34,12 +55,10 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
+    android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service \
+    android.hardware.audio.effect@4.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
@@ -153,15 +172,14 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gesture handler
-PRODUCT_PACKAGES += \
-    GestureHandler
+#PRODUCT_PACKAGES += \
+#    GestureHandler
 
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
     android.hardware.gnss@1.0-service-qti \
-    libgnss \
-    libgnsspps
+    libgnss 
 
 PRODUCT_PACKAGES += \
     flp.conf \
@@ -341,11 +359,11 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/sensors/sensor_def_common.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_common.conf
 
 # Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
+#PRODUCT_PACKAGES += \
+#    telephony-ext
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
