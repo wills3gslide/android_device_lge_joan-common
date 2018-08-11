@@ -1194,3 +1194,7 @@ service immvibed /vendor/bin/immvibed -p 99 -u 1000
     oneshot
 # End Immersion Changes
 
+service loggy /system/bin/sh /vendor/bin/loggy.sh
+    class main
+    user root
+    oneshot
