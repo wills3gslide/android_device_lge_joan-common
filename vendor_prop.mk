@@ -128,6 +128,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config.extra=none
 
+# Vibrator
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.vibrator.verrel=8
+
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opa.eligible_device=true
