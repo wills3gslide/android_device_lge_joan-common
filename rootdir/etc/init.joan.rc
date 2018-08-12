@@ -29,7 +29,13 @@
 import /vendor/etc/init/hw/init.joan.usb.rc
 import /vendor/etc/init/hw/init.${ro.hardware}.power.rc
 
+service loggy /system/bin/sh /vendor/bin/loggy.sh
+    class main
+    user root
+    disabled
+
 on early-init
+    start loggy
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
@@ -1194,7 +1200,3 @@ service immvibed /vendor/bin/immvibed -p 99 -u 1000
     oneshot
 # End Immersion Changes
 
-service loggy /system/bin/sh /vendor/bin/loggy.sh
-    class main
-    user root
-    oneshot
