@@ -233,13 +233,20 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # NFC
+#PRODUCT_PACKAGES += \
+#    android.hardware.nfc@1.0-impl \
+#    android.hardware.nfc@1.0-service \
+#    com.android.nfc_extras \
+#    nfc_nci.msm8998 \
+#    NfcNci \
+#    Tag
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
-    android.hardware.nfc@1.0-service \
+    android.hardware.nfc@1.1-service \
     com.android.nfc_extras \
-    nfc_nci.msm8998 \
     NfcNci \
+    SecureElement \
     Tag
+
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
