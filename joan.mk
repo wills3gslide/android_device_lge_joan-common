@@ -365,7 +365,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.1-service.mata
+    android.hardware.usb@1.1-service.joan
 
 # Vibrator
 PRODUCT_PACKAGES += \

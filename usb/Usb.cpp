@@ -40,8 +40,8 @@ namespace usb {
 namespace V1_1 {
 namespace implementation {
 
-constexpr char ESSENTIAL_USB_VENDOR_ID_STR[] = "2e17";
-constexpr char ESSENTIAL_USBC_35_ADAPTER_UNPLUGGED_ID_STR[] = "a001";
+constexpr char LGE_USB_VENDOR_ID_STR[] = "18d1";
+constexpr char LGE_USBC_35_ADAPTER_UNPLUGGED_ID_STR[] = "C033";
 
 // Set by the signal handler to destroy the thread
 volatile bool destroyThread;
@@ -642,8 +642,8 @@ Usb::Usb()
  */
 static bool canProductAutoSuspend(const std::string &deviceIdVendor,
         const std::string &deviceIdProduct) {
-    if (deviceIdVendor == ESSENTIAL_USB_VENDOR_ID_STR &&
-        deviceIdProduct == ESSENTIAL_USBC_35_ADAPTER_UNPLUGGED_ID_STR) {
+    if (deviceIdVendor == LGE_USB_VENDOR_ID_STR &&
+        deviceIdProduct == LGE_USBC_35_ADAPTER_UNPLUGGED_ID_STR) {
         return true;
     }
     return false;
