@@ -153,8 +153,8 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gesture handler
-PRODUCT_PACKAGES += \
-    GestureHandler
+#PRODUCT_PACKAGES += \
+#    GestureHandler
 
 # GPS
 PRODUCT_PACKAGES += \
