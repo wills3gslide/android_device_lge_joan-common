@@ -126,7 +126,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config.extra=none
+    persist.sys.usb.config.extra=none \
+    sys.usb.ffs.aio_compat=1
+
+# Vibrator
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.vibrator.verrel=8
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -1,5 +1,6 @@
 /*
- * Copyright 2017 The LineageOS Project
+ * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,37 +15,34 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.joan"
-
 #include <hidl/HidlTransportSupport.h>
+#include "Usb.h"
 
-#include "Light.h"
+using android::sp;
 
+// libhwbinder:
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using android::hardware::light::V2_0::ILight;
-using android::hardware::light::V2_0::implementation::Light;
+// Generated HIDL files
+using android::hardware::usb::V1_1::IUsb;
+using android::hardware::usb::V1_1::implementation::Usb;
 
-using android::OK;
-using android::sp;
 using android::status_t;
+using android::OK;
 
 int main() {
-    android::sp<ILight> service = new Light();
 
-    configureRpcThreadpool(1, true);
+    android::sp<IUsb> service = new Usb();
 
+    configureRpcThreadpool(1, true /*callerWillJoin*/);
     status_t status = service->registerAsService();
-    if (status != OK) {
-        ALOGE("Cannot register Light HAL service.");
-        return 1;
+
+    if (status == OK) {
+        ALOGI("USB HAL Ready.");
+        joinRpcThreadpool();
     }
 
-    ALOGI("Light HAL service ready.");
-
-    joinRpcThreadpool();
-
-    ALOGI("Light HAL service failed to join thread pool.");
+    ALOGE("Cannot register USB HAL service");
     return 1;
 }
