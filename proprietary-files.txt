@@ -522,7 +522,7 @@ lib64/libdiag_system.so
 
 # DRM
 vendor/bin/qseecomd
-vendor/lib/lib-sec-disp.so
+vendor/lib/lib-sec-disp.so|72c546daefef9b08fa7ecfa2ea4fb1e2269dc4f6
 vendor/lib/libcppf.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libsdedrm.so
@@ -530,7 +530,7 @@ vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libsecureuisvc_jni.so
 vendor/lib/libtzdrmgenprov.so
-vendor/lib64/lib-sec-disp.so
+vendor/lib64/lib-sec-disp.so|cf94d1a5162a2dc49a5bf2a2daed83eb08ae671b
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel_svc.so
