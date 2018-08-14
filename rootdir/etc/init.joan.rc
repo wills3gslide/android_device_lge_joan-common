@@ -29,19 +29,7 @@
 import /vendor/etc/init/hw/init.joan.usb.rc
 import /vendor/etc/init/hw/init.${ro.hardware}.power.rc
 
-service loggy /system/bin/sh /vendor/bin/loggy.sh
-    class main
-    user root
-    disabled
-
-service dmesgy /system/bin/sh /vendor/bin/dmesgy.sh
-    class main
-    user root
-    disabled
-
 on early-init
-    start loggy
-    start dmesgy
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
